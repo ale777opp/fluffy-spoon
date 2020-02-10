@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+* {
+    box-sizing: border-box;
+}
+img{
+    height: 600px;
+    width: 880px;
+}
+.scroll-container {
+    height: 600px;
+    width: 900px;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: center;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('groupe1.png');
+    background-size: cover;
+}
+
+section:nth-child(2n) {
+    background-image:url('groupe2.png');
+    background-size: cover;
+}
+
+section:nth-child(3n) {
+    background: url('groupe3_1.png');
+    background-size: cover;
+}
+.slider {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    position: relative; 
+    top: 550px; 
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('Polygon 1.png');
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('Polygon 1.png');
+    cursor: pointer;
+} 
+</style>
+<body>
+    <main class="scroll-container">
+        <section></section>
+        <section> </section>
+        <section>
+        <div>
+            <div class="slidecontainer" align="center">
+                <input type="range" min="1" max="100" value="20" class="slider" id="myRange">
+            </div>
+            <div class="slider__item" >
+                <img src="groupe3_1.png" alt="">
+            </div>
+        </div>                             
+        </section>
+    </main>
+<script>
+    var slider = document.getElementById("myRange");
+    var slider__items = document.getElementsByClassName("slider__item");
+    slider.onchange=function() {
+        slide_num=this.value;
+            if(slide_num>=0 & slide_num<=33) {slider__items[0].children[0].outerHTML="<img src=\"groupe3_1.png\" alt=\"\">";}
+                else if (slide_num>=33 & slide_num<=66) {slider__items[0].children[0].outerHTML="<img src=\"groupe3_2.png\" alt=\"\">";} 
+            else {slider__items[0].children[0].outerHTML="<img src=\"groupe3_3.png\" alt=\"\">";}
+    }
+</script>
+</body>
+</html>
