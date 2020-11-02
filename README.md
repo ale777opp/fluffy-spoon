@@ -1,2 +1,2 @@
 # fluffy-spoon
-задание front-end
+drag-and-scroll
